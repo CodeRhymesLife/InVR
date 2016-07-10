@@ -6,6 +6,7 @@ public class BallManager : MonoBehaviour {
     public soccerBall OriginalBall;
     public float DelayBeforeNextBall = 5;
     public GameObject Goal;
+	public Crowd crowd;
 
     private float _timeBeforeNextBall;
 
@@ -22,6 +23,7 @@ public class BallManager : MonoBehaviour {
             // Create a ball and make it a child of this container
             soccerBall ball = Instantiate(OriginalBall, new Vector3(20f, 1f), Quaternion.identity) as soccerBall;
             ball.Goal = Goal;
+			ball.crowd = crowd;
             ball.transform.parent = gameObject.transform;
 
             _timeBeforeNextBall = DelayBeforeNextBall;
